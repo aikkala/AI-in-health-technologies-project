@@ -5,16 +5,18 @@ import scipy.io
 def collect_data(matlab_data_folder):
 
   # Get mat files
-  files = [os.path.join(matlab_data_folder, f) for f in os.listdir(matlab_data_folder) if f.endswith('.mat')]
+  files = [f for f in os.listdir(matlab_data_folder) if f.endswith('.mat')]
   files = np.sort(files)
 
   # Collect all data into a numpy array (note that signals can be of different lengths)
-  data = np.empty((len(files),), dtype=object)
+  # Collect also subject names
+  data = np.empty((len(files),2), dtype=object)
 
   # Go through all data files, collect into one array
   for idx, file in enumerate(files):
-    mat = scipy.io.loadmat(file)
-    data[idx] = mat['val'].squeeze()
+    mat = scipy.io.loadmat(os.path.join(matlab_data_folder, file))
+    data[idx, 0] = file[:6]
+    data[idx, 1] = mat['val'].squeeze()
 
   return data
 

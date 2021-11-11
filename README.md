@@ -1,0 +1,1 @@
+This repo contains source code for the course ELEC-E873901 AI in Health Technologies 2021. Group members: Aleksi Ikkala, Janita Nissi, Rishabh Kapoor
