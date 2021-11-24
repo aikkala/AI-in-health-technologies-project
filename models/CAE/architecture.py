@@ -19,7 +19,7 @@ class Preprocess(tf.keras.layers.Layer):
 
 
 class CAE(tf.keras.Model):
-  """Convolutional variational autoencoder for 1D signals"""
+  """Convolutional autoencoder for 1D signals"""
 
   def __init__(self, input_dim, latent_dim):
     super(CAE, self).__init__()
