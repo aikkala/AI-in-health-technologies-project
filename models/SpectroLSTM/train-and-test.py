@@ -127,6 +127,12 @@ if __name__ == "__main__":
   data = np.concatenate([data, val2_data])
   labels = np.concatenate([labels, val2_labels])
 
+  # Add val3 data to train data
+  val3_data = np.load('../../data/sets/val3_data.npy', allow_pickle=True)
+  val3_labels = np.load('../../data/sets/val3_label.npy', allow_pickle=True)
+  data = np.concatenate([data, val3_data])
+  labels = np.concatenate([labels, val3_labels])
+
   # Set seed so we don't create new train/validation split each time
   np.random.seed(123)
 
@@ -189,8 +195,8 @@ if __name__ == "__main__":
   print()
 
   # Predict on test set
-  test_data = np.load('../../data/sets/val3_data.npy', allow_pickle=True)
-  test_labels = np.load('../../data/sets/val3_label.npy', allow_pickle=True)
+  test_data = np.load('../../data/sets/test_data.npy', allow_pickle=True)
+  test_labels = np.load('../../data/sets/test_label.npy', allow_pickle=True)
   test_data = preprocess(test_data)
   test_labels = map_labels(test_labels)
 
